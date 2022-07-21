@@ -1,0 +1,126 @@
+
+<robot name="Un_car">
+  <material name="orange">
+    <color rgba="1.0 0.5 0.2 1" />
+  </material>
+  <material name="gray">
+    <color rgba="0.2 0.2 0.2 1" />
+  </material>
+
+  <link name="base_link">
+  </link>
+
+  <link name="body_link">
+     <visual>
+       <geometry>
+        <mesh scale="0.00059 0.00059 0.00059" filename="package://cartographer_ros/mesh/body.stl"/>
+       </geometry>
+       <origin xyz="-0.15 0.15 0" rpy="1.57 0 0" />
+      <material name="gray" />
+    </visual>
+  </link>
+
+ <joint name="body_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="body_link" />
+    <origin xyz="0 0 0.025" rqy="0 0 0" />
+  </joint>
+
+  <link name="front_left_wheel_link">
+     <visual>
+       <geometry>
+        <mesh scale="0.0009 0.0009 0.0009" filename="package://cartographer_ros/mesh/wheel.stl"/>
+       </geometry>
+       <origin xyz="-0.06 0.055 -0.0675" rpy="0 0 -1.57" />
+      <material name="orange" />
+    </visual>
+  </link>
+
+ <joint name="front_left_wheel_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="front_left_wheel_link" />
+    <origin xyz="-0.09 0.09 0.05" rpy="0 -1.57 0" />
+  </joint>
+
+  <link name="front_right_wheel_link">
+     <visual>
+       <geometry>
+        <mesh scale="0.0009 0.0009 0.0009" filename="package://cartographer_ros/mesh/wheel.stl"/>
+       </geometry>
+       <origin xyz="-0.06 -0.0675 -0.055" rpy="0 -1.57 -1.57" />
+      <material name="orange" />
+    </visual>
+  </link>
+
+ <joint name="front_right_wheel_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="front_right_wheel_link" />
+    <origin xyz="0.09 0.09 0.05" rpy="-1.57 -1.57 0" />
+  </joint>
+
+  <link name="back_right_wheel_link">
+     <visual>
+       <geometry>
+        <mesh scale="0.0009 0.0009 0.0009" filename="package://cartographer_ros/mesh/wheel.stl"/>
+       </geometry>
+       <origin xyz="-0.06 -0.0675 -0.055" rpy="0 -1.57 -1.57" />
+      <material name="orange" />
+    </visual>
+  </link>
+
+ <joint name="back_right_wheel_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="back_right_wheel_link" />
+    <origin xyz="0.09 -0.09 0.05" rpy="-1.57 -1.57 0" />
+  </joint>
+
+  <link name="back_left_wheel_link">
+     <visual>
+       <geometry>
+        <mesh scale="0.0009 0.0009 0.0009" filename="package://cartographer_ros/mesh/wheel.stl"/>
+       </geometry>
+       <origin xyz="-0.06 0.055 -0.0675" rpy="0 0 -1.57" />
+      <material name="orange" />
+    </visual>
+  </link>
+
+ <joint name="back_left_wheel_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="back_left_wheel_link" />
+    <origin xyz="-0.09 -0.09 0.05" rpy="0 -1.57 0" />
+  </joint>
+
+  <link name="front_left_laser_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.035" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+ <joint name="front_left_laser_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="front_left_laser_link" />
+    <origin xyz="-0.115 0.115 0.012" rqy="0 0 0" />
+  </joint>
+
+
+
+  <link name="back_right_laser_link">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder length="0.04" radius="0.035" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <joint name="back_right_laser_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="back_right_laser_link" />
+    <origin xyz="0.115 -0.115 0.012" rqy="0 0 3.1415923" />
+  </joint>
+</robot>

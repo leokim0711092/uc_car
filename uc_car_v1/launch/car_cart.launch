@@ -1,0 +1,16 @@
+<launch>
+    <param name="/use_sim_time" value="false" />  
+    <param name="robot_description" textfile="$(find uc_car_v1)/urdf/car.urdf" />
+
+ <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  
+    <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+          -configuration_directory
+              $(find uc_car_v1)/configuration_files -configuration_basename car.lua" output="log"/>
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+    
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find uc_car_v1)/rviz/car.rviz" />  
+</launch>
+
