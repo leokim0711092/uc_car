@@ -2,6 +2,10 @@
 This is the record of process about our car project, which can have some introduction in our page.
 ## uc_car_v1
 First version is to use num_laser_scan = 2 in cartographer. However, we still have one error "Drop early point" in this version.
+rqt_tf_tree
+![](https://i.imgur.com/LkBnarW.png)
+rqt_graph
+![](https://i.imgur.com/bDravdd.png)
 ## uc_car_v2
 Second Version is to use ira_laser_tools to merge single data. However,when I try to add joint state and pubilsh state in this version, I can only use num_laser_scan = 2 to compute map.
 ## uc_car_v3
